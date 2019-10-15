@@ -6,15 +6,70 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 ## Question 1
 
 a) Define an enumeration called `iOSDeviceType` with member values `iPhone`, `iPad`, `iWatch`. Create a variable called `myDevice` and assign it one member value.
+```swift
+enum iOSDeviceType {
+    case iPhone(String)
+    case iPad(String)
+    case iWatch
+}
 
+let myiPad = iOSDeviceType.iPad
+```
 b) Adjust your code above so that `iPhone` and `iPad` have associated values of type String which represents the model number, eg: `iPhone("6 Plus")`. Use a switch case and let syntax to print out the model number of each device.
 
+```swift
+let myiPhone = iOSDeviceType.iPhone("6 Plus")
+
+switch myiPhone {
+case .iPad:
+    print(myiPhone)
+case .iPhone:
+    print(myiPhone)
+default:
+    print("Nothing")
+}
+```
 
 ## Question 2
 
 a) Write an enum called `Shape` and give it cases for `triangle`, `rectangle`, `square`, `pentagon`, and `hexagon`.
+```swift
+enum Shape {
+    case triangle
+    case rectangle
+    case square
+    case pentagon
+    case hexagon
+}
+```
 
 b) Write a method inside `Shape` that returns how many sides the shape has. Create a variable called `myFavoritePolygon` and assign it to one of the shapes above, then print out how many sides it has.
+```swift
+enum Shape {
+    case triangle
+    case rectangle
+    case square
+    case pentagon
+    case hexagon
+    func numberOfSides() {
+        switch self {
+        case .triangle:
+            print("\(self) has 3 sides.")
+        case .hexagon:
+            print("\(self) has 6 sides.")
+        case .pentagon:
+            print("\(self) has 5 sides.")
+        case .rectangle:
+            print("\(self) has 4 sides.")
+        case .square:
+            print("\(self) has 4 sides.")
+        }
+    }
+}
+
+let myFavoriteShape = Shape.triangle
+myFavoriteShape.numberOfSides()
+```
 
 c) Re-write `Shape` so that each case has an associated value of type Int that will represent the length of the sides (assume the shapes are regular polygons so all the sides are the same length) and write a method inside that returns the perimeter of the shape.
 
